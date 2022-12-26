@@ -14,6 +14,14 @@ const handler = async (req, res) => {
         const movie = await Movie.findById(id);
         if (movie) {
           movie.reviews.push(review);
+          movie.number_of_votes = movie.reviews.length;
+          let totalRating = 0;
+          for (let i = 0; i < movie.reviews.length; i++) {
+            totalRating = Number(totalRating) + Number(movie.reviews[i].rate);
+          }
+          movie.rating = (Number(totalRating) / movie.reviews.length).toFixed(
+            1
+          );
           await movie.save();
           res.status(200).json(movie);
         }

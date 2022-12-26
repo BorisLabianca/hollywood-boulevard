@@ -4,7 +4,7 @@ import Movie from "../../../models/Movie";
 const handler = async (req, res) => {
   if (req.method === "GET") {
     try {
-      const movies = await Movie.find();
+      const movies = await Movie.find().limit(40);
       // console.log(movies);
       res.status(200).json({ data: movies });
     } catch (error) {

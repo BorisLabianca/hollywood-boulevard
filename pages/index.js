@@ -31,7 +31,7 @@ export default function Home({ data }) {
                 key={movie._id}
                 style={{ width: "calc(100%/4 - 75px /4)" }}
               >
-                <h2>{movie.original_title}</h2>
+                <h2>{movie.title}</h2>
                 <Image
                   src={`https://image.tmdb.org/t/p/original${movie.poster_path}`}
                   alt={`Affiche du film ${movie.original_title}`}
