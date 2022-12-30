@@ -1,6 +1,7 @@
 import axios from "axios";
 import genres from "../../assets/genres.json";
 import ratings from "../../functions/ratings";
+import AddReview from "../../components/AddReview";
 
 const movie = ({ data }) => {
   const genresConverter = () => {
@@ -12,18 +13,23 @@ const movie = ({ data }) => {
           data.genre_ids[i] === genres[j].id &&
           i < data.genre_ids.length - 1
         ) {
-          movieGenres.push(`${genres[j].name}, `);
+          movieGenres.push(
+            <span key={data.genre_ids[i]}>{`${genres[j].name}, `}</span>
+          );
         } else if (
           data.genre_ids[i] === genres[j].id &&
           i === data.genre_ids.length - 1
         ) {
-          movieGenres.push(`${genres[j].name}.`);
+          movieGenres.push(
+            <span key={data.genre_ids[i]}>{`${genres[j].name}.`}</span>
+          );
         }
       }
     }
     // console.log(movieGenres);
     return movieGenres;
   };
+  console.log(data.rating);
   return (
     <main
       style={{
@@ -87,10 +93,14 @@ const movie = ({ data }) => {
           {data.rating && (
             <div className="ratings-div" style={{ marginTop: "5px" }}>
               <div style={{ display: "flex", gap: "10px" }}>
-                <div style={{ display: "flex" }}>{ratings(data.rating)}</div>
-                <div style={{ color: "#FECC01", fontWeight: "700" }}>{`${
-                  String(data.rating).split(".")[0]
-                },${String(data.rating).split(".")[1]}`}</div>
+                <div style={{ display: "flex" }} key={data._id}>
+                  {ratings(data.rating)}
+                </div>
+                <div style={{ color: "#FECC01", fontWeight: "700" }}>
+                  {String(data.rating).split(".")[0]}
+                  {String(data.rating).split(".")[1] &&
+                    `,${String(data.rating).split(".")[1]}`}
+                </div>
               </div>
               <div
                 style={{ fontSize: "14px" }}
@@ -101,7 +111,9 @@ const movie = ({ data }) => {
           <p>{data.overview}</p>
         </div>
       </div>
-
+      <div className="add-review">
+        <AddReview id={data._id} />
+      </div>
       <div className="reviews">
         {data.reviews.map((review, index) => {
           return (
@@ -110,7 +122,8 @@ const movie = ({ data }) => {
                 <span>Auteur : </span> {review.author}
               </h2>
               <p>
-                <span>Note : </span> {review.rate}
+                <span>Note : </span>
+                {ratings(review.rate)}
               </p>
               <p>
                 <span>Commentaire : </span> {review.text}

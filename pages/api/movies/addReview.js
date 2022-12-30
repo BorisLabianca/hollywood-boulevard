@@ -24,8 +24,7 @@ const handler = async (req, res) => {
           );
           await movie.save();
           res.status(200).json(movie);
-        }
-        {
+        } else {
           res.status(400).json({ message: "No movie with this id was found." });
         }
       } else {

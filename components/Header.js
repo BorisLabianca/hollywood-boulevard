@@ -4,7 +4,22 @@ import Link from "next/link";
 
 const Header = () => {
   return (
-    <div style={{ display: "flex", alignItems: "center" }}>
+    <div
+      style={{
+        display: "flex",
+        alignItems: "center",
+        flexDirection: "column",
+        justifyContent: "center",
+        boxShadow: "0px 2px 5px gray",
+        width: "100%",
+        padding: "15px",
+        fontSize: "28px",
+        fontWeight: "700",
+        position: "sticky",
+        top: "0",
+        backgroundColor: "white",
+      }}
+    >
       <Link
         href="/"
         className="logo-container"
