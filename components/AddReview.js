@@ -95,12 +95,13 @@ const AddReview = ({ id }) => {
               type="submit"
               disabled={isSubmitting}
               style={{
-                backgroundColor: "#FECC01",
+                backgroundColor: "#0d98ba",
                 borderRadius: "5px",
-                border: "#FECC01 1px solid",
+                border: "#0d98ba 1px solid",
                 padding: "8px",
                 fontSize: "18px",
                 fontWeight: "700",
+                color: "white",
               }}
             >
               Valider

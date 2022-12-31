@@ -5,8 +5,10 @@ const Footer = () => {
       style={{
         display: "flex",
         justifyContent: "center",
+        alignItems: "center",
         height: "50px",
         boxSizing: "border-box",
+        borderTop: "1px solid lightgray",
       }}
     >
       <div>

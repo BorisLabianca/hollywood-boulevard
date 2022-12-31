@@ -29,12 +29,13 @@ const movie = ({ data }) => {
     // console.log(movieGenres);
     return movieGenres;
   };
-  console.log(data.rating);
+  // console.log(data);
   return (
     <main
       style={{
         margin: "0 auto",
         maxWidth: "1200px",
+        minHeight: "calc(100vh - 178px)",
         padding: "35px",
         boxSizing: "border-box",
         display: "flex",

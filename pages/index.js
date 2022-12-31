@@ -1,11 +1,9 @@
 import Head from "next/head";
-import Image from "next/image";
 import styles from "../styles/Home.module.css";
 import axios from "axios";
-import Link from "next/link";
+import HomeCategory from "../components/HomeCategory";
 
-export default function Home({ data }) {
-  // console.log(data);
+export default function Home({ animations, adventures, comedies, thrillers }) {
   return (
     <>
       <Head>
@@ -23,25 +21,10 @@ export default function Home({ data }) {
           maxWidth: "1200px",
         }}
       >
-        <div style={{ display: "flex", flexWrap: "wrap", gap: "25px" }}>
-          {data.map((movie) => {
-            return (
-              <Link
-                href={`/movie/${movie._id}`}
-                key={movie._id}
-                style={{ width: "calc(100%/4 - 75px /4)" }}
-              >
-                <h2>{movie.title}</h2>
-                <Image
-                  src={`https://image.tmdb.org/t/p/original${movie.poster_path}`}
-                  alt={`Affiche du film ${movie.original_title}`}
-                  width={150}
-                  height={200}
-                />
-              </Link>
-            );
-          })}
-        </div>
+        <HomeCategory movieGenre={animations} category={"films d'animation"} />
+        <HomeCategory movieGenre={adventures} category={"films d'aventure"} />
+        <HomeCategory movieGenre={comedies} category={"comédies"} />
+        <HomeCategory movieGenre={thrillers} category={"thrillers"} />
       </main>
     </>
   );
@@ -57,5 +40,5 @@ export async function getServerSideProps() {
     console.log("catch home>>", error);
   }
   // console.log(dataToSend);
-  return { props: { data: dataToSend } };
+  return { props: dataToSend };
 }

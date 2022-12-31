@@ -11,6 +11,7 @@ const Header = () => {
         flexDirection: "column",
         justifyContent: "center",
         boxShadow: "0px 2px 5px gray",
+        boxSizing: "border-box",
         width: "100%",
         padding: "15px",
         fontSize: "28px",
