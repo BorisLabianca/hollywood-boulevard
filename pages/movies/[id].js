@@ -149,7 +149,7 @@ export async function getServerSideProps(context) {
     // console.log(data);
     dataToSend = data;
   } catch (error) {
-    console.log("catch movie/id>>", error);
+    console.log("catch movies/id>> ", error);
   }
   return {
     props: { data: dataToSend },

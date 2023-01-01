@@ -4,6 +4,7 @@ import axios from "axios";
 import HomeCategory from "../components/HomeCategory";
 
 export default function Home({ animations, adventures, comedies, thrillers }) {
+  // console.log(animations);
   return (
     <>
       <Head>
@@ -21,8 +22,8 @@ export default function Home({ animations, adventures, comedies, thrillers }) {
           maxWidth: "1200px",
         }}
       >
-        <HomeCategory movieGenre={animations} category={"films d'animation"} />
-        <HomeCategory movieGenre={adventures} category={"films d'aventure"} />
+        <HomeCategory movieGenre={animations} category={"animation"} />
+        <HomeCategory movieGenre={adventures} category={"aventure"} />
         <HomeCategory movieGenre={comedies} category={"comédies"} />
         <HomeCategory movieGenre={thrillers} category={"thrillers"} />
       </main>
