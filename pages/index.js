@@ -3,7 +3,13 @@ import styles from "../styles/Home.module.css";
 import axios from "axios";
 import HomeCategory from "../components/HomeCategory";
 
-export default function Home({ animations, adventures, comedies, thrillers }) {
+export default function Home({
+  all,
+  animations,
+  adventures,
+  comedies,
+  thrillers,
+}) {
   // console.log(animations);
   return (
     <>
@@ -22,6 +28,7 @@ export default function Home({ animations, adventures, comedies, thrillers }) {
           maxWidth: "1200px",
         }}
       >
+        <HomeCategory movieGenre={all} />
         <HomeCategory movieGenre={animations} category={"animation"} />
         <HomeCategory movieGenre={adventures} category={"aventure"} />
         <HomeCategory movieGenre={comedies} category={"comédies"} />

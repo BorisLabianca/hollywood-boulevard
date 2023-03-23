@@ -1,23 +1,36 @@
 import Link from "next/link";
 import genres from "../assets/genres.json";
+import MovieCard from "./MovieCard";
 
 const HomeCategory = ({ movieGenre, category }) => {
   // console.log(category);
   let categoryName = "";
-  if (category[category.length - 1] === "s") {
-    categoryName = `${category.split("")[0].toUpperCase()}${category.slice(
-      1,
-      category.length - 1
-    )}`;
-  } else {
-    categoryName = `${category.split("")[0].toUpperCase()}${category.slice(1)}`;
+  if (category) {
+    if (category[category.length - 1] === "s") {
+      categoryName = `${category.split("")[0].toUpperCase()}${category.slice(
+        1,
+        category.length - 1
+      )}`;
+    } else {
+      categoryName = `${category.split("")[0].toUpperCase()}${category.slice(
+        1
+      )}`;
+    }
   }
-  const genreId = genres.find((elem) => elem.name === categoryName).id;
+
+  const genreId =
+    category && genres.find((elem) => elem.name === categoryName).id;
 
   // console.log(genreId());
   return (
     <div style={{ marginBottom: "40px", width: "100%", height: "fit-content" }}>
-      <div>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "baseline",
+        }}
+      >
         <h2
           style={{
             fontSize: "28px",
@@ -25,50 +38,28 @@ const HomeCategory = ({ movieGenre, category }) => {
             marginBottom: "20px",
           }}
         >
-          {category === "animation" || category === "aventure"
-            ? `Recommandations films d'${category}`
-            : `Recommandations ${category}`}
+          {category
+            ? category === "animation" || category === "aventure"
+              ? `Recommandations films d'${category}`
+              : `Recommandations ${category}`
+            : "Recommandations"}
         </h2>
         <Link href={`/genres/${genreId}`}>Voir plus</Link>
       </div>
-
       <div
         style={{
           display: "flex",
           overflow: "scroll",
           gap: "25px",
           width: "100%",
-          height: "fit-content",
+          height: "300px",
           overflowY: "hidden",
+          paddingTop: "5px",
+          paddingBottom: "10px",
         }}
       >
         {movieGenre.map((movie) => {
-          return (
-            <Link
-              href={`/movies/${movie._id}`}
-              key={movie._id}
-              style={{
-                width: "calc(100% / 4 - 75px / 4)",
-                height: "fit-content",
-                flexShrink: "0",
-              }}
-            >
-              <h3
-                style={{
-                  fontSize: "20px",
-                  fontWeight: "500",
-                  marginBottom: "10px",
-                }}
-              >
-                {movie.title}
-              </h3>
-              <img
-                src={`https://image.tmdb.org/t/p/original${movie.poster_path}`}
-                alt={`Affiche du film ${movie.original_title}`}
-                width="100%"
-              />
-            </Link>
-          );
+          return <MovieCard key={movie._id} movie={movie} />;
         })}
       </div>
     </div>

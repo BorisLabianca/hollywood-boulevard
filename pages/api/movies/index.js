@@ -4,6 +4,7 @@ import Movie from "../../../models/Movie";
 const handler = async (req, res) => {
   if (req.method === "GET") {
     try {
+      const all = await Movie.aggregate([{ $sample: { size: 10 } }]);
       const animations = await Movie.aggregate([
         { $match: { genre_ids: { $in: [16] } } },
         { $sample: { size: 10 } },
@@ -23,7 +24,7 @@ const handler = async (req, res) => {
       // console.log(animations);
       res
         .status(200)
-        .json({ data: { animations, adventures, comedies, thrillers } });
+        .json({ data: { all, animations, adventures, comedies, thrillers } });
     } catch (error) {
       res.status(400).json(error);
     }

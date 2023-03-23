@@ -2,6 +2,7 @@ import axios from "axios";
 import genres from "../../assets/genres.json";
 import ratings from "../../functions/ratings";
 import AddReview from "../../components/AddReview";
+import ReviewCard from "../../components/ReviewCard";
 
 const movie = ({ data }) => {
   const genresConverter = () => {
@@ -29,7 +30,7 @@ const movie = ({ data }) => {
     // console.log(movieGenres);
     return movieGenres;
   };
-  // console.log(data);
+  console.log(data);
   return (
     <main
       style={{
@@ -115,13 +116,24 @@ const movie = ({ data }) => {
       <div className="add-review">
         <AddReview id={data._id} />
       </div>
-      <div className="reviews">
+      <div
+        className="reviews"
+        style={{ display: "flex", flexDirection: "column", gap: "20px" }}
+      >
         {data.reviews.map((review, index) => {
           return (
-            <div key={index}>
+            <ReviewCard
+              key={index}
+              author={review.author}
+              rate={review.rate}
+              text={review.text}
+            />
+          );
+          {
+            /* <div key={index}>
               <h2>
                 <span>Auteur : </span> {review.author}
-              </h2>
+              </h2> 
               <p>
                 <span>Note : </span>
                 {ratings(review.rate)}
@@ -129,8 +141,8 @@ const movie = ({ data }) => {
               <p>
                 <span>Commentaire : </span> {review.text}
               </p>
-            </div>
-          );
+            </div> */
+          }
         })}
       </div>
     </main>

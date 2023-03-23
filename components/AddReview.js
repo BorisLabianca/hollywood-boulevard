@@ -66,6 +66,7 @@ const AddReview = ({ id }) => {
               flexDirection: "column",
               width: "50%",
               gap: "10px",
+              alignSelf: "center",
             }}
           >
             <Field
