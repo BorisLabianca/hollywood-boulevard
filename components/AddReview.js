@@ -11,22 +11,27 @@ const AddReview = ({ id }) => {
   };
   const handleSubmit = async (values, { setSubmitting, resetForm }) => {
     const { author, rate, text } = values;
+    console.log(id);
+
     try {
-      const { data } = await axios.post("/api/movies/addReview", {
-        author,
-        rate,
-        text,
-        id: id,
-      });
+      const { data } = await axios.post(
+        "http://localhost:3000/api/movies/addReview",
+        {
+          author,
+          rate,
+          text,
+          id: id,
+        }
+      );
       console.log(data);
-      router.replace(`/movie/${id}`, null, { scroll: false });
     } catch (error) {
       console.log("AddReview catch>> ", error);
     }
     resetForm(initialValues);
     setSubmitting(false);
+    router.replace(`/movies/${id}`, null, { scroll: false });
   };
-
+  console.log(initialValues.rate);
   return (
     <div className="add-review-main">
       <h2>Ajoutez un commentaire </h2>

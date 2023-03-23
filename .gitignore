@@ -30,3 +30,7 @@ yarn-error.log*
 
 # vercel
 .vercel
+allmovies.json
+genres.json
+test.json
+data.json

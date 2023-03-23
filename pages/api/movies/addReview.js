@@ -4,8 +4,9 @@ import Movie from "../../../models/Movie";
 const handler = async (req, res) => {
   if (req.method === "POST") {
     const { id, author, rate, text } = req.body;
+    console.log(req.body);
     try {
-      if (id && author && rate && text) {
+      if (id && author && rate >= 0 && text) {
         const review = {
           author: author,
           rate: rate,

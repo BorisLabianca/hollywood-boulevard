@@ -1,6 +1,6 @@
 import connectDB from "../../../middlewares/connectDB";
 import Movie from "../../../models/Movie";
-import data from "../../../assets/data.json";
+import data from "../../../assets/test.json";
 
 const handler = async (req, res) => {
   if (req.method === "POST") {
