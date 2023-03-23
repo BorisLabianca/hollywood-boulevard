@@ -1,16 +1,6 @@
 const Footer = () => {
   return (
-    <div
-      className="footer-main"
-      style={{
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        height: "50px",
-        boxSizing: "border-box",
-        borderTop: "1px solid lightgray",
-      }}
-    >
+    <div className="footer-main flex justify-center items-center h-[50px] box-border border-t border-t-solid border-gray-300 md:text-base text-sm">
       <div>
         Made with{" "}
         <a href="https://nextjs.org/" target="_blank" rel="noreferrer">

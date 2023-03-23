@@ -19,15 +19,7 @@ export default function Home({
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main
-        style={{
-          minHeight: "calc(100vh - 140px)",
-          padding: "35px",
-          boxSizing: "border-box",
-          margin: "0 auto",
-          maxWidth: "1200px",
-        }}
-      >
+      <main className=" min-h-[calc(100vh-140px)] my-0 mx-auto max-w-7xl p-8 box-border">
         <HomeCategory movieGenre={all} />
         <HomeCategory movieGenre={animations} category={"animation"} />
         <HomeCategory movieGenre={adventures} category={"aventure"} />

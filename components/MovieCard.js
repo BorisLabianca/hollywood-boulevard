@@ -4,32 +4,18 @@ const MovieCard = ({ movie }) => {
   return (
     <Link
       href={`/movies/${movie._id}`}
-      style={{
-        width: "calc(100% / 5 - 110px / 5)",
-        height: "100%",
-        flexShrink: "0",
-        position: "relative",
-        boxShadow: "2px 2px 5px black",
-      }}
+      className="md:w-[calc(100%/4-83px/4)] lg:w-[calc(100%/5-110px/5)] h-full flex-shrink-0 relative shadow-[2px_2px_5px_rgba(0,0,0,1)]"
     >
       <div
+        className="absolute bottom-0 flex items-center justify-center w-full h-[200px] box-border p-[100px_5px_5px_5px]"
         style={{
-          position: "absolute",
-          bottom: "0",
           background: "linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 1))",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          width: "100%",
-          padding: "15px 5px 5px 5px",
-          height: "70px",
-          boxSizing: "border-box",
         }}
       >
         <h3
           style={{
             fontSize: "20px",
-            fontWeight: "500",
+            fontWeight: "700",
             textAlign: "center",
             color: "white",
           }}

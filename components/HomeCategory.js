@@ -44,7 +44,7 @@ const HomeCategory = ({ movieGenre, category }) => {
               : `Recommandations ${category}`
             : "Recommandations"}
         </h2>
-        <Link href={`/genres/${genreId}`}>Voir plus</Link>
+        {category && <Link href={`/genres/${genreId}`}>Voir plus</Link>}
       </div>
       <div
         style={{
@@ -52,7 +52,7 @@ const HomeCategory = ({ movieGenre, category }) => {
           overflow: "scroll",
           gap: "25px",
           width: "100%",
-          height: "300px",
+          height: "350px",
           overflowY: "hidden",
           paddingTop: "5px",
           paddingBottom: "10px",

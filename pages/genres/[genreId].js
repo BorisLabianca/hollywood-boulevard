@@ -1,51 +1,14 @@
 import axios from "axios";
-import Link from "next/link";
+import MovieCardGenrePage from "../../components/MovieCardGenrePage";
 
 const genre = ({ data }) => {
   // console.log(data);
   return (
-    <main
-      style={{
-        margin: "0 auto",
-        maxWidth: "1200px",
-        minHeight: "calc(100vh - 178px)",
-        padding: "35px",
-        boxSizing: "border-box",
-        display: "flex",
-        flexWrap: "wrap",
-        gap: "40px",
-        // backgroundImage: `url(https://image.tmdb.org/t/p/original${data.backdrop_path})`,
-      }}
-    >
+    <div className="flex items-center justify-center gap-[40px] flex-wrap box-border w-full p-8 text-3xl font-bold my-0 mx-auto max-w-7xl min-h-[calc(100vh-178px)]">
       {data.map((movie) => {
-        return (
-          <Link
-            href={`/movies/${movie._id}`}
-            key={movie._id}
-            style={{
-              width: "calc(100% / 4 - 120px / 4)",
-              height: "fit-content",
-              flexShrink: "0",
-            }}
-          >
-            <h3
-              style={{
-                fontSize: "20px",
-                fontWeight: "500",
-                marginBottom: "10px",
-              }}
-            >
-              {movie.title}
-            </h3>
-            <img
-              src={`https://image.tmdb.org/t/p/original${movie.poster_path}`}
-              alt={`Affiche du film ${movie.original_title}`}
-              width="100%"
-            />
-          </Link>
-        );
+        return <MovieCardGenrePage movie={movie} />;
       })}
-    </main>
+    </div>
   );
 };
 

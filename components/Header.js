@@ -6,33 +6,8 @@ import axios from "axios";
 const Header = () => {
   const handleSearch = async () => {};
   return (
-    <div
-      style={{
-        boxShadow: "0px 2px 5px gray",
-        boxSizing: "border-box",
-        width: "100%",
-        position: "sticky",
-        top: "0",
-        backgroundColor: "white",
-        zIndex: "10",
-      }}
-    >
-      <div
-        style={{
-          display: "flex",
-          alignItems: "center",
-          flexDirection: "column",
-          gap: "10px",
-          justifyContent: "center",
-          boxSizing: "border-box",
-          width: "100%",
-          padding: "35px",
-          fontSize: "28px",
-          fontWeight: "700",
-          margin: "0 auto",
-          maxWidth: "1200px",
-        }}
-      >
+    <div className="shadow-lg box-border w-full sticky top-0 bg-white z-10">
+      <div className="flex items-center justify-center gap-[10px] flex-col box-border w-full p-8 text-xl md:text-3xl font-bold my-0 mx-auto max-w-7xl">
         <Link
           href="/"
           className="logo-container"
@@ -64,23 +39,10 @@ const Header = () => {
           <input
             type="text"
             placeholder="Tapez le titre d'un film..."
-            style={{
-              width: "100%",
-              height: "100%",
-              border: "none",
-              outline: "none",
-              fontSize: "18px",
-              boxSizing: "border-box",
-              padding: "5px 10px 5px 10px",
-            }}
+            className="outline-none w-full h-full border-none text-lg box-border py-[5px] px-[10px]"
           />
           <button
-            style={{
-              border: "none",
-              backgroundColor: "black",
-              color: "white",
-              height: "100%",
-            }}
+            className="border-none bg-black text-white h-full text-transparent md:text-lg md:text-white"
             onClick={handleSearch}
           >
             Rechercher
