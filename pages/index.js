@@ -2,15 +2,20 @@ import Head from "next/head";
 import styles from "../styles/Home.module.css";
 import axios from "axios";
 import HomeCategory from "../components/HomeCategory";
+import { useDispatch } from "react-redux";
+import { setDataToSearchFrom } from "../features/searchBar/searchBarSlice";
 
 export default function Home({
-  all,
+  recAll,
   animations,
   adventures,
   comedies,
   thrillers,
+  searchBarData,
 }) {
-  // console.log(animations);
+  // console.log(searchBarData);
+  const dispatch = useDispatch();
+  dispatch(setDataToSearchFrom(searchBarData));
   return (
     <>
       <Head>
@@ -20,7 +25,7 @@ export default function Home({
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className=" min-h-[calc(100vh-140px)] my-0 mx-auto max-w-7xl p-8 box-border">
-        <HomeCategory movieGenre={all} />
+        <HomeCategory movieGenre={recAll} />
         <HomeCategory movieGenre={animations} category={"animation"} />
         <HomeCategory movieGenre={adventures} category={"aventure"} />
         <HomeCategory movieGenre={comedies} category={"comédies"} />
