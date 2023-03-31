@@ -5,7 +5,9 @@ const handler = async (req, res) => {
   const { title } = req.query;
   //   console.log(title);
   if (req.method === "GET") {
-    const searchResponse = await Movie.find({ title: new RegExp(title, "i") });
+    const searchResponse = await Movie.find({
+      title: new RegExp(title, "i"),
+    }).limit(10);
     // console.log(searchResponse);
     res.status(200).json(searchResponse);
   } else {

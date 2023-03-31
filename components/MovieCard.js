@@ -28,6 +28,7 @@ const MovieCard = ({ movie }) => {
         src={`https://image.tmdb.org/t/p/original${movie.poster_path}`}
         alt={`Affiche du film ${movie.original_title}`}
         style={{ width: "100%", height: "100%", objectFit: "cover" }}
+        loading="lazy"
       />
     </Link>
   );

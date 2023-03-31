@@ -6,7 +6,7 @@ const search = ({ searchResults }) => {
   return (
     <div className="flex items-center justify-center gap-[40px] flex-wrap box-border w-full p-8 text-3xl font-bold my-0 mx-auto max-w-7xl min-h-[calc(100vh-178px)]">
       {searchResults.map((movie) => {
-        return <MovieCardGenrePage movie={movie} />;
+        return <MovieCardGenrePage movie={movie} key={movie._id} />;
       })}
     </div>
   );

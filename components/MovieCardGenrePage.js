@@ -20,6 +20,7 @@ const MovieCardGenrePage = ({ movie }) => {
         src={`https://image.tmdb.org/t/p/original${movie.poster_path}`}
         alt={`Affiche du film ${movie.original_title}`}
         width="100%"
+        loading="lazy"
       />
     </Link>
   );
